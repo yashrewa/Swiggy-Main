@@ -101,23 +101,23 @@ router.post('/create-checkout-session', Auth_1.Authenticate, (req, res) => __awa
         return res.status(400).json(result.error);
     }
     res.json({ message: "succesfully parsed" });
-    // const tranformedItems = items.map((item:Item)=> ({
-    //     price_data: {
-    //         currency: 'INR',
-    //         product_data: {
-    //             name: item.name,
-    //             images: [item.imageId]
-    //         },
-    //         unit_amount: item.price * 100
-    //     },
-    //     quantity: item.quantity
-    // }))
-    // const session = await stripe.checkout.sessions.create({
-    //     line_items: tranformedItems,
-    //     mode: 'payment',
-    //     success_url: `http://localhost:5173/user/payment-success`,
-    //     cancel_url: `http://localhost:3000/user/restaurant-list/payment-failed`
-    // });
-    // res.json( {url: (session as any).url});
+    const tranformedItems = items.map((item) => ({
+        price_data: {
+            currency: 'INR',
+            product_data: {
+                name: item.name,
+                images: [item.imageId]
+            },
+            unit_amount: item.price * 100
+        },
+        quantity: item.quantity
+    }));
+    const session = yield stripe.checkout.sessions.create({
+        line_items: tranformedItems,
+        mode: 'payment',
+        success_url: `http://localhost:5173/user/payment-success`,
+        cancel_url: `http://localhost:3000/user/restaurant-list/payment-failed`
+    });
+    res.json({ url: session.url });
 }));
 exports.default = router;
