@@ -4,7 +4,7 @@
   "description": "backend for a food ordering application",
   "main": "app.ts",
   "scripts": {
-    "run": "node Dist/app.js",
+    "start": "node Dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "yash",
