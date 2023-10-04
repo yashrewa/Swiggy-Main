@@ -128,7 +128,7 @@ router.post('/create-checkout-session', Authenticate ,async (req, res:Response) 
         const session = await stripe.checkout.sessions.create({
             line_items: tranformedItems,
             mode: 'payment',
-            success_url: `https://swiggy-clone-j5gz.onrender.com/user/payment-success`,
+            success_url: `https://swiggy-clone-j5gz.onrender.com/payment-success`,
             cancel_url: `https://swiggy-clone-j5gz.onrender.com/restaurant-list/payment-failed`
         });
     

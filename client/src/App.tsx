@@ -30,14 +30,14 @@ function App() {
           <Routes>
           <Route path="/" element= {<UserLogin />} />
           <Route path="/signup" element= {<UserSingup />} />
-        <Route path="/user/payment-success" element= {<PaymentSuccess />} />
+          <Route path="/payment-success" element= {<PaymentSuccess />} />
           <Route path="/restaurant-list" element= {<RestaurantList />} />
           <Route path="/restaurant-list/restaurantmenu/:resId" element= {<UserRestaurantMenu />} />
           <Route path="/admin/login" element= {<AdminLogin />} />
           <Route path="/admin/signup" element= {<AdminSignup />} />
-          <Route path="admin/restaurant-list" element= {<RestaurantList />} />
-          <Route path="admin/restaurant-list/restaurantmenu/:resId" element= {<RestaurantMenu />} />
-          <Route path="admin/add-restaurant" element= {<AddRestaurant />} />
+          <Route path="/admin/restaurant-list" element= {<RestaurantList />} />
+          <Route path="/admin/restaurant-list/restaurantmenu/:resId" element= {<RestaurantMenu />} />
+          <Route path="/admin/add-restaurant" element= {<AddRestaurant />} />
           </Routes>
           <Footer />
         </Router>
