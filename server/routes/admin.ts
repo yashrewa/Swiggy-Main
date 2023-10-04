@@ -11,7 +11,7 @@ const router = express.Router();
 
 // ZOD Validation below
 
-const signupValidate = z.object({email: z.string().email().min(1), password: z.string().min(8)})
+const signupValidate = z.object({email: z.string().min(1), password: z.string().min(8)})
 const loginValidate = z.object({email: z.string().min(1), password: z.string().min(8)})
 const restaurantValidate = z.object({
     name: z.string().min(1),

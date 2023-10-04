@@ -11,7 +11,7 @@ const Authenticate = (req, res, next) => {
     if (!req.headers.authorization) { // return res.status(403).json({message: "please login top again"})
         return console.log("error");
     }
-    console.log(req.headers.authorization);
+    // console.log(req.headers.authorization)
     const token = (_a = req.headers.authorization) === null || _a === void 0 ? void 0 : _a.split(' ')[1];
     if (token !== undefined && token !== null) {
         jsonwebtoken_1.default.verify(token, exports.secretKey, (err, data) => {

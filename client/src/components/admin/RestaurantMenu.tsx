@@ -3,31 +3,50 @@ import useRestaurant from "../utils/useRestaurant";
 import axios from "axios";
 import {useState} from "react";
 import AddCusine from "./AddCusines";
-import {useNavigate} from "react-router-dom";
 import { backendLink } from "../utils/backendLink";
+import { Params } from "react-router-dom";
 
 // interface Menu[{
 //     description: string;
 
 // }]
+interface Items{
+    _id: string;
+    name: string;
+    description: string;
+    price: number;
+    imageId: string;
+    quantity: number;
+}
 
 
-interface RestaurantMenu {
+interface Restaurant {
     _id: number;
     name: string;
-    menu: object[]
+    menu: Items[]
     locality: string;
+    area: string;
     deliveryTime: number;
+    veg: boolean;
+    avgRating: {
+        $numberDecimal: string;
+    };
     costForTwo: number;
+    totalRating: number;
     cloudinaryImageId: string;
 }
+
+interface CustomParams extends Params {
+    resId: string;
+  }
+  
 function RestaurantMenu() {
-    const navigate = useNavigate();
     const [show, setShow] = useState(false)
 
-    const resId = useParams();
+    const resId: CustomParams = useParams() as CustomParams;
+    console.log(resId)
 
-    const restaurant: any = useRestaurant(resId)
+    const restaurant:Restaurant | undefined = useRestaurant(resId)
 
     const handleOnClose = () => {
         setShow(false)
@@ -47,7 +66,7 @@ function RestaurantMenu() {
         console.log(res)
     }
 
-    return ! restaurant ? (
+    return !restaurant ? (
         <>loading...</>
     ) : (
         <div className="grid">
@@ -66,9 +85,6 @@ function RestaurantMenu() {
                         restaurant.name
                     } </div>
                     <div className="text-sm font-medium mt-3 text-neutral-300">
-                        <div> {
-                            restaurant.cuisines
-                        }</div>
                         <div className="pt-2">
                             {
                             restaurant.locality + ", " + restaurant.area
@@ -80,7 +96,7 @@ function RestaurantMenu() {
                         <div className="flex justify-between pt-4 font-semibold text-base">
                             <div className="text-white font-medium pr-8 border-neutral-600 border-r-2">
                                 ★ {
-                                restaurant ?. avgRating ?. $numberDecimal
+                                restaurant?.avgRating?.$numberDecimal
                             }
                                 <div className="text-xs mt-1 text-neutral-300 font-normal">
                                     {
@@ -133,11 +149,11 @@ function RestaurantMenu() {
                   All
                 </button> */}
                 <div> {
-                    restaurant ?. menu ?. map((items) => {
+                    restaurant?.menu?.map((items) => {
                         return (
                             <div className="pt-8 w-screen"
                                 key={
-                                    items ?. id
+                                    items?._id
                             }>
                                 <div className="flex border-b-2 border-neutral-300 justify-between mt-4 pb-4 w-6/12 mx-80">
                                     <div>
@@ -160,12 +176,12 @@ function RestaurantMenu() {
                                     </div>
                                     <div className="relative flex justify-center">
                                         {
-                                        !items.imageId ? (
+                                        !items.imageId?(
                                             <div className="w-40 h-auto"></div>
                                         ) : (
                                             <img className="w-40 h-auto z-0 border rounded-md"
                                                 src={
-                                                    items ?. imageId
+                                                    items?.imageId
                                                 }/>
                                         )
                                     }

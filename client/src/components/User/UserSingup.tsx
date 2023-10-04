@@ -8,14 +8,13 @@ function UserSingup() {
     const [password, setPassword] = useState("");
     // const [token, setToken] = useState("");
 
-    const Signup = async (e : Event) => {
-        e.preventDefault();
+    const Signup = async () => {
         try {
             const response: AxiosResponse = await axios.post(`${backendLink}/user/signup`, {
                 email: email,
                 password: password
             }, {});
-            console.log(response.response)
+            console.log(response)
             if (response.data.message.issues) {
                 response.data.message.issues.forEach((issue) => {
                     return window.alert(`${
@@ -57,7 +56,7 @@ function UserSingup() {
                 <div className="flex justify-between items-center mt-3 mb-2">
                     <button type="button"
                         onClick={
-                            (e) => Signup(e)
+                            () => Signup()
                         }
                         className="focus:outline-none px-4 text-white bg-green-500 hover:bg-purple-600 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm py-2.5  dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-purple-900">
                         Signup

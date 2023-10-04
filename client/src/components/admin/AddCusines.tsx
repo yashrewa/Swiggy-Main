@@ -1,14 +1,14 @@
 import axios from "axios";
 import {useState} from "react";
 import {AiFillCloseSquare} from 'react-icons/ai'
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { backendLink } from "../utils/backendLink";
 
 
 function AddCusine({resId, visible, onClose}) {
     //use resId.resId instead of resId
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const initialState = {
         name: "",
         description: "",
@@ -63,7 +63,7 @@ function AddCusine({resId, visible, onClose}) {
                             </button>
                         </div>
                         <div className="mb-3 pt-0">
-                            <input type="text" placeholder="name" className="px-3 py-3 placeholder-slate-500 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                            <input type="text" placeholder="name" className="px-3 py-3 placeholder-slate-500 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                                 onChange={
                                     (e) => setRestaurantMenuData({
                                         ...restaurantMenuData,
@@ -72,7 +72,7 @@ function AddCusine({resId, visible, onClose}) {
                                 }/>
                         </div>
                         <div className="mb-3 pt-0">
-                            <input type="text" placeholder="description" className="px-3 py-3 placeholder-slate-500 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                            <input type="text" placeholder="description" className="px-3 py-3 placeholder-slate-500 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                                 onChange={
                                     (e) => setRestaurantMenuData({
                                         ...restaurantMenuData,
@@ -101,7 +101,7 @@ function AddCusine({resId, visible, onClose}) {
                         <div className="flex items-center my-4">
                             <input id="default-checkbox" type="checkbox"
                                 value={
-                                    restaurantMenuData.isVeg
+                                    restaurantMenuData.isVeg.toString()
                                 }
                                 onChange={
                                     e => handleChange(e)
@@ -112,7 +112,7 @@ function AddCusine({resId, visible, onClose}) {
 
                         <button type="button" className="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-900"
                             onClick={
-                                (e) => {
+                                () => {
                                     handleAddCusine(resId.resId)
                                     window.location.reload()
                                     onClose()

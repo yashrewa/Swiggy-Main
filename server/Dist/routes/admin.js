@@ -20,7 +20,7 @@ const zod_1 = require("zod");
 const Auth_1 = require("../middleware/Auth");
 const router = express_1.default.Router();
 // ZOD Validation below
-const signupValidate = zod_1.z.object({ email: zod_1.z.string().email().min(1), password: zod_1.z.string().min(8) });
+const signupValidate = zod_1.z.object({ email: zod_1.z.string().min(1), password: zod_1.z.string().min(8) });
 const loginValidate = zod_1.z.object({ email: zod_1.z.string().min(1), password: zod_1.z.string().min(8) });
 const restaurantValidate = zod_1.z.object({
     name: zod_1.z.string().min(1),

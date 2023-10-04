@@ -111,14 +111,14 @@ function Cart({visible, onClose}) {
                                             <td className=" lg:py-4">
                                                 <div className="flex items-center">
                                                     <button className="border rounded-md py-2 px2 lg:px-4 mr-2" onClick={
-                                                            e => handleDecrease(item._id)
+                                                            () => handleDecrease(item._id)
                                                     }>-</button>
                                                     <span className="text-center w-2 lg:w-8"> {
                                                         item.quantity
                                                     }</span>
                                                     <button className="border rounded-md py-2 px2 lg:px-4 ml-2"
                                                         onClick={
-                                                            e => handleIncrease(item._id)
+                                                            () => handleIncrease(item._id)
                                                     }>+</button>
                                                 </div>
                                             </td>
@@ -158,7 +158,7 @@ function Cart({visible, onClose}) {
                                         totalPrice() + (+ ((totalPrice() * .05).toFixed(2)))
                                     }</span>
                                 </div>
-                                <button className="bg-green-500 text-white py-2 px-4 rounded-lg mt-4 w-full" onClick={e=>handleCheckout()}>Checkout</button>
+                                <button className="bg-green-500 text-white py-2 px-4 rounded-lg mt-4 w-full" onClick={()=>handleCheckout()}>Checkout</button>
                             </div>
                         </div>
                     </div>

@@ -1,38 +1,51 @@
 import {useParams} from "react-router-dom";
 import useRestaurant from "../utils/useRestaurant";
-import axios from "axios";
-import {useState} from "react";
-// import AddCusine from "./AddCusines";
-import {useNavigate} from "react-router-dom";
-import {useRecoilState, useRecoilValue} from "recoil";
+import { Params } from "react-router-dom";
+import {useRecoilState} from "recoil";
 import {cartState} from "../store/atoms/cart";
-import {showState} from "../store/atoms/show";
-import Cart from "./Cart";
 
 
-interface RestaurantMenu {
+interface Items{
+    _id: string;
+    name: string;
+    description: string;
+    price: number;
+    imageId: string;
+    quantity: number;
+}
+
+interface Restaurant {
     _id: number;
     name: string;
-    menu: object[]
+    menu: Items[]
     locality: string;
+    area: string;
     deliveryTime: number;
+    veg: boolean;
+    avgRating: {
+        $numberDecimal: string;
+    };
     costForTwo: number;
+    totalRating: number;
     cloudinaryImageId: string;
 }
+
+interface CustomParams extends Params {
+    resId: string;
+  }
+  
+
 function UserRestaurantMenu() { // const navigate = useNavigate();
-    const [show, setShow] = useRecoilState(showState)
     const [cart, setCart] = useRecoilState(cartState)
 
-    const handleOnClose = () => {
-        setShow(false)
-    }
-
-    const resId: string = useParams();
-
-    const restaurant: any = useRestaurant(resId)
 
 
-    const handleAddToCart = async (cusineId : string, id : string) => {
+    const resId: CustomParams = useParams() as CustomParams;
+
+    const restaurant:Restaurant = useRestaurant(resId) 
+
+
+    const handleAddToCart = async (cusineId : string) => {
         const item = restaurant.menu.find(item => item._id === cusineId)
         const isPresent = cart.findIndex(item => item._id === cusineId);
         console.log(cart)
@@ -73,9 +86,6 @@ function UserRestaurantMenu() { // const navigate = useNavigate();
                     restaurant.name
                 } </div>
                 <div className="text-sm font-medium mt-3 text-neutral-300">
-                    <div> {
-                        restaurant.cuisines
-                    }</div>
                     <div className="pt-2"> {
                         restaurant.locality + ", " + restaurant.area
                     } </div>
@@ -137,7 +147,7 @@ function UserRestaurantMenu() { // const navigate = useNavigate();
                 restaurant ?. menu ?. map((items) => {
                     return (<div className="pt-8 w-screen"
                         key={
-                            items ?. id
+                            items?._id
                     }>
                         <div className="flex border-b-2 border-neutral-300 justify-between mt-4 px-6 lg:px-0 pb-4 w-screen lg:w-6/12 lg:mx-80">
                             <div>
@@ -156,15 +166,13 @@ function UserRestaurantMenu() { // const navigate = useNavigate();
                                 } </div>
                             </div>
                             <div className="flex-row justify-center"> {
-                                !items.imageId ? (<div className="w-40 h-auto"></div>) : (<img className="w-40 h-12 h-auto border rounded-md"
-                                    src={
-                                        items ?. imageId
-                                    }/>)
+                                !items.imageId ? (<div className="w-40 h-auto"></div>) : (<img className="w-40 h-auto border rounded-md"
+                                    src={items ?. imageId}/>)
                             }
                                 <button className="bg-green-500 mx-4 p-0.5 rounded-md text-white border-2 border-neutral-300"
                                     onClick={
                                         () => {
-                                            handleAddToCart(items._id, resId)
+                                            handleAddToCart(items._id)
                                             // window.location.reload()
                                         }
                                 }>

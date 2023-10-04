@@ -13,6 +13,7 @@ app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.use('/admin', admin_1.default);
 app.use('/user', user_1.default);
-mongoose_1.default.connect(`${process.env.MONGODB_CONNECT_URI}`);
-const PORT = process.env.PORT;
-app.listen(PORT);
+mongoose_1.default.connect(`mongodb+srv://yashrewa00:21Savage@cluster0.3z81dfx.mongodb.net/Swiggy?retryWrites=true&w=majority`);
+// mongoose.connect(`${process.env.MONGODB_CONNECT_URI}`)
+// const PORT = process.env.PORT;
+app.listen('3000');

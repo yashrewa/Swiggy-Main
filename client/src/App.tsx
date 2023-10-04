@@ -25,7 +25,6 @@ function App() {
   return (
     <><RecoilRoot>
         <Router>
-
           <Navbar />
           <InitUser />
           <Routes>
@@ -52,15 +51,16 @@ export default App
 
 export function InitUser() {
     const [email, setEmail] = useRecoilState(userState)
-
+    console.log(email)
     const fetchUserEmail = async () => {
-        const response = await axios.get(`${backendLink}}/me`, {
+        const response = await axios.get(`${backendLink}/user/me`, {
             headers: {
                 Authorization: `Bearer ${
                     localStorage.getItem('token')
                 }`
             }
         })
+        console.log(response)
         if (response.data.email) {
             setEmail({email: response.data.email})
         } else {
@@ -70,7 +70,6 @@ export function InitUser() {
     }
     useEffect(() => {
         fetchUserEmail();
-
     }, [])
 
     return(null)

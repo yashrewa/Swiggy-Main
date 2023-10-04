@@ -1,7 +1,7 @@
 import axios from "axios";
 import RestrauntCard from "./RestaurantCard";
 import {useState, useEffect} from "react";
-import {Link, Navigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { InitUser } from "../App";
 import { backendLink } from "./utils/backendLink";
@@ -57,13 +57,13 @@ const RestaurantList = () => {
         getRestaurants();
         console.log(filteredRestaurants);
 
-    }, []);
+    },[]);
 
     const getRestaurants = async () => {
         try{
             console.log(localStorage.getItem('token'))
             if(localStorage.getItem('token' )!== null){
-                const data = await axios.get(`${backendLink}/restaurant-list`, {
+                const data = await axios.get(`${backendLink}/admin/restaurant-list`, {
                     headers: {
                         "Authorization": `Bearer ${
                             localStorage.getItem(`token`)
@@ -106,13 +106,13 @@ const RestaurantList = () => {
                         (e) => setSearchInput(e.target.value)
                     }/>
                 <button className="bg-green-500 rounded-sm p-1 lg:w-1/16 text-white lg:text-lg text-base"
-                    onClick={
-                        () => {
-                            const data = filterData(searchInput, allRestaurants);
-                            console.log(data);
-                            setFilteredRestaurants(data);
-                        }
-                }>Search
+                    // onClick={
+                    //     () => {
+                    //         const data = filterData(searchInput, allRestaurants);
+                    //         console.log(data);
+                    //         setFilteredRestaurants(data);
+                    //     }}
+                        >Search
                 </button>
             </div>
             <div className="flex mt-4 justify-evenly">

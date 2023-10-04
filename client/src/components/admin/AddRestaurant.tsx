@@ -4,7 +4,7 @@ import { backendLink } from "../utils/backendLink";
 
 function AddRestaurant() {
 
-    let initialState = {
+    const initialState = {
         name: "",
         cloudinaryImageId: "",
         locality: "",
@@ -52,7 +52,7 @@ function AddRestaurant() {
         <div className="my-16 flex justify-center">
             <div className="w-1/4 border-2 p-6 border-gray-200 shadow-lg shadow-green-500  rounded-xl text-center">
                 <div className="mb-3 pt-0">
-                    <input type="text" placeholder="Name" className="px-3 py-3 placeholder-slate-500 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                    <input type="text" placeholder="Name" className="px-3 py-3 placeholder-slate-500 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                         onChange={
                             (e) => setRestaurantData({
                                 ...restaurantData,
@@ -61,7 +61,7 @@ function AddRestaurant() {
                         }/>
                 </div>
                 <div className="mb-3 pt-0">
-                    <input type="text" placeholder="cloudinaryImageId Link" className="px-3 py-3 placeholder-slate-500 text-slate-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                    <input type="text" placeholder="cloudinaryImageId Link" className="px-3 py-3 placeholder-slate-500 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                         onChange={
                             (e) => setRestaurantData({
                                 ...restaurantData,
@@ -108,7 +108,7 @@ function AddRestaurant() {
                 <div className="flex items-center my-4">
                     <input id="default-checkbox" type="checkbox"
                         value={
-                            restaurantData.Isveg
+                            restaurantData.isVeg.toString()
                         }
                         onChange={
                             e => handleChange(e)
@@ -119,7 +119,7 @@ function AddRestaurant() {
 
                 <button type="button" className="focus:outline-none text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-purple-900"
                     onClick={
-                        (e) => handleAddRestaurant(e)
+                        () => handleAddRestaurant()
                 }>
                     Add Course
                 </button>

@@ -8,17 +8,8 @@ function AdminSignup() {
     const [password, setPassword] = useState("");
     // const [token, setToken] = useState("");
 
-    interface issues {
-        issues: string[] | number[];
-    }
 
-    interface Response {
-        message: string | issues[],
-        token: string;
-    }
-
-    const Signup = async (e : Event) => {
-        e.preventDefault();
+    const Signup = async () => {
         try {
             const response: AxiosResponse = await axios.post(`${backendLink}/admin/signup`, {
                 email: email,
@@ -66,7 +57,7 @@ function AdminSignup() {
                 <div className="flex justify-between items-center mt-3 mb-2">
                     <button type="button"
                         onClick={
-                            (e) => Signup(e)
+                            () => Signup()
                         }
                         className="focus:outline-none px-4 text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm py-2.5  dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
                         Signup

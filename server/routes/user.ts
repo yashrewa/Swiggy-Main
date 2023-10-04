@@ -84,7 +84,7 @@ router.post('/login', async (req : Request, res : Response) => {
 
 router.get('/me', Authenticate, (req : Request, res : Response) => {
     if (req.headers.email) {
-        console.log(req.headers)
+        console.log(req.headers.email)
         res.json({email: req.headers.email})
     }
 })
@@ -100,38 +100,43 @@ router.get('/restaurant-list', Authenticate, async (req : Request, res : Respons
 })
 
 router.post('/create-checkout-session', Authenticate ,async (req, res:Response) => {
-    const {items} = req.body;
-    console.log(items);
-
-    const result = arrayOfCartItems.safeParse(items);
-    console.log(result)
-    if(!result.success){
-        return res.status(400).json(result.error)
-    }
-
-    res.json({message: "succesfully parsed"})
-
-
-    const tranformedItems = items.map((item:Item)=> ({
-        price_data: {
-            currency: 'INR',
-            product_data: {
-                name: item.name,
-                images: [item.imageId]
+    try{
+        const {items} = req.body;
+        console.log(items);
+    
+        const result = arrayOfCartItems.safeParse(items);
+        console.log(result)
+        if(!result.success){
+            return res.status(400).json(result.error)
+        }
+    
+        // res.json({message: "succesfully parsed"})
+    
+    
+        const tranformedItems = items.map((item:Item)=> ({
+            price_data: {
+                currency: 'INR',
+                product_data: {
+                    name: item.name,
+                    images: [item.imageId]
+                },
+                unit_amount: item.price * 100
             },
-            unit_amount: item.price * 100
-        },
-        quantity: item.quantity
-    }))
-
-    const session = await stripe.checkout.sessions.create({
-        line_items: tranformedItems,
-        mode: 'payment',
-        success_url: `http://localhost:5173/user/payment-success`,
-        cancel_url: `http://localhost:3000/user/restaurant-list/payment-failed`
-    });
-
-    res.json( {url: (session as any).url});
+            quantity: item.quantity
+        }))
+    
+        const session = await stripe.checkout.sessions.create({
+            line_items: tranformedItems,
+            mode: 'payment',
+            success_url: `http://localhost:5173/user/payment-success`,
+            cancel_url: `http://localhost:5173/user/restaurant-list/payment-failed`
+        });
+    
+        res.json( {url: (session as any).url});
+    }
+    catch(err){
+        return res.send(err)
+    }
 });
 
 

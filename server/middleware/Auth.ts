@@ -7,7 +7,7 @@ export const Authenticate = (req : Request, res : Response, next : NextFunction)
         if (!req.headers.authorization) { // return res.status(403).json({message: "please login top again"})
             return console.log("error")
         }
-        console.log(req.headers.authorization)
+        // console.log(req.headers.authorization)
         const token = req.headers.authorization ?. split(' ')[1]
 
         if (token !== undefined && token !== null) {

@@ -3,10 +3,10 @@ import {useState, useEffect} from 'react';
 import { backendLink } from './backendLink';
 
 function useRestaurant({resId}) {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(null);
     useEffect(()=>{
         fetchMenu(resId)
-    },[])
+    },[resId])
     // console.log(resId)
     const fetchMenu = async (id:string) => {
         try{
@@ -23,6 +23,7 @@ function useRestaurant({resId}) {
             // console.log(err);
         }
     }
+    console.log(data)
     return data;
 }
 
