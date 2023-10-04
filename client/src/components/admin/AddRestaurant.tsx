@@ -1,5 +1,6 @@
 import axios from "axios";
 import {useState} from "react";
+import { backendLink } from "../utils/backendLink";
 
 function AddRestaurant() {
 
@@ -34,7 +35,7 @@ function AddRestaurant() {
     }
 
     const handleAddRestaurant = async () => {
-        const res = await axios.post("http://localhost:3000/admin/add-restaurant", {
+        const res = await axios.post(`${backendLink}/admin/add-restaurant`, {
             ...restaurantData
         }, {
             headers: {

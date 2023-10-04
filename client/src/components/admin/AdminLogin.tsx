@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import { backendLink } from "../utils/backendLink";
 // import { useSetRecoilState } from "recoil";
 // import { userState } from "../store/atoms/user";
 
@@ -13,7 +14,7 @@ function AdminLogin() {
     const logIn = async (e : Event) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:3000/admin/login", {}, {
+            const response = await axios.post(`${backendLink}/admin/login`, {}, {
                 headers: {
                     email: userName,
                     password: password

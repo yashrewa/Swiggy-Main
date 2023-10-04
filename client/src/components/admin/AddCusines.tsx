@@ -2,6 +2,7 @@ import axios from "axios";
 import {useState} from "react";
 import {AiFillCloseSquare} from 'react-icons/ai'
 import { useNavigate } from "react-router-dom";
+import { backendLink } from "../utils/backendLink";
 
 
 function AddCusine({resId, visible, onClose}) {
@@ -37,7 +38,7 @@ function AddCusine({resId, visible, onClose}) {
     }
 
     const handleAddCusine = async (id) => {
-        const res = await axios.post("http://localhost:3000/admin/add-food/" + id, {
+        const res = await axios.post(`${backendLink}/admin/add-food/` + id, {
             ...restaurantMenuData
         }, {
             headers: {

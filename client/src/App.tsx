@@ -15,6 +15,7 @@ import { RecoilRoot, useRecoilState } from 'recoil'
 import { userState } from './components/store/atoms/user'
 import axios from 'axios'
 import { useEffect } from 'react'
+import { backendLink } from './components/utils/backendLink'
 
 
 
@@ -53,7 +54,7 @@ export function InitUser() {
     const [email, setEmail] = useRecoilState(userState)
 
     const fetchUserEmail = async () => {
-        const response = await axios.get('http://localhost:3000/user/me', {
+        const response = await axios.get(`${backendLink}}/me`, {
             headers: {
                 Authorization: `Bearer ${
                     localStorage.getItem('token')

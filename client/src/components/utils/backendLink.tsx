@@ -1,0 +1,1 @@
+export const backendLink = "https://swiggy-backend-645v.onrender.com/"

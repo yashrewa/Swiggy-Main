@@ -4,6 +4,7 @@ import {useState, useEffect} from "react";
 import {Link, Navigate} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { InitUser } from "../App";
+import { backendLink } from "./utils/backendLink";
 // import Theme from "./utils/Theme
 // import DedicatedCart from "./DedicatedCart";
 
@@ -62,7 +63,7 @@ const RestaurantList = () => {
         try{
             console.log(localStorage.getItem('token'))
             if(localStorage.getItem('token' )!== null){
-                const data = await axios.get("http://localhost:3000/admin/restaurant-list", {
+                const data = await axios.get(`${backendLink}/restaurant-list`, {
                     headers: {
                         "Authorization": `Bearer ${
                             localStorage.getItem(`token`)

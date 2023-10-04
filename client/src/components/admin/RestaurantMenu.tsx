@@ -4,6 +4,7 @@ import axios from "axios";
 import {useState} from "react";
 import AddCusine from "./AddCusines";
 import {useNavigate} from "react-router-dom";
+import { backendLink } from "../utils/backendLink";
 
 // interface Menu[{
 //     description: string;
@@ -34,7 +35,7 @@ function RestaurantMenu() {
 
     const handleDeleteItem = async (cusineId, id) => {
         console.log(cusineId, id.resId)
-        const res = await axios.post('http://localhost:3000/admin/restaurant-delete/' + id.resId, {
+        const res = await axios.post(`${backendLink}/admin/restaurant-delete/` + id.resId, {
             cusineId
         }, {
             headers: {

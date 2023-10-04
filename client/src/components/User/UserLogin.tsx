@@ -4,6 +4,7 @@ import axios from "axios";
 // import { useSetRecoilState } from "recoil";
 // import { userState } from "../store/atoms/user";
 import { InitUser } from "../../App";
+import { backendLink } from "../utils/backendLink";
 
 function UserLogin() {
     const [userName, setUserName] = useState("");
@@ -14,7 +15,7 @@ function UserLogin() {
     const logIn = async (e : Event) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:3000/user/login", {}, {
+            const response = await axios.post(`${backendLink}/user/login`, {}, {
                 headers: {
                     email: userName,
                     password: password

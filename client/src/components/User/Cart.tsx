@@ -3,6 +3,7 @@ import {cartItems} from '../store/selectors/cartData';
 import {useRecoilValue, useSetRecoilState} from 'recoil';
 import {cartState} from '../store/atoms/cart';
 import axios from 'axios';
+import { backendLink } from '../utils/backendLink';
 
 function Cart({visible, onClose}) {
     const items = useRecoilValue(cartItems)
@@ -19,7 +20,7 @@ function Cart({visible, onClose}) {
 
     const handleCheckout =async()=>{
         try{
-            const response = await axios.post("http://localhost:3000/user/create-checkout-session",{
+            const response = await axios.post(`${backendLink}/user/create-checkout-session`,{
                 items: items
             },{headers: {
                 "Authorization" : `Bearer ${localStorage.getItem("token")}`

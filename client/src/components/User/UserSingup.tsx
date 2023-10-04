@@ -1,6 +1,7 @@
 import axios, {AxiosResponse} from "axios";
 import {useState} from "react";
 import {Link} from "react-router-dom";
+import { backendLink } from "../utils/backendLink";
 
 function UserSingup() {
     const [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ function UserSingup() {
     const Signup = async (e : Event) => {
         e.preventDefault();
         try {
-            const response: AxiosResponse = await axios.post("http://localhost:3000/user/signup", {
+            const response: AxiosResponse = await axios.post(`${backendLink}/user/signup`, {
                 email: email,
                 password: password
             }, {});
