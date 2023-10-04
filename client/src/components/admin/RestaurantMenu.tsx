@@ -3,14 +3,15 @@ import useRestaurant from "../utils/useRestaurant";
 import axios from "axios";
 import {useState} from "react";
 import AddCusine from "./AddCusines";
-import { backendLink } from "../utils/backendLink";
-import { Params } from "react-router-dom";
+import {backendLink} from "../utils/backendLink";
+import {Params} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // interface Menu[{
 //     description: string;
 
 // }]
-interface Items{
+interface Items {
     _id: string;
     name: string;
     description: string;
@@ -38,15 +39,16 @@ interface Restaurant {
 
 interface CustomParams extends Params {
     resId: string;
-  }
-  
+}
+
 function RestaurantMenu() {
     const [show, setShow] = useState(false)
+    const navigate = useNavigate()
 
-    const resId: CustomParams = useParams() as CustomParams;
+    const resId: CustomParams = useParams()as CustomParams;
     console.log(resId)
 
-    const restaurant:Restaurant | undefined = useRestaurant(resId)
+    const restaurant: Restaurant | undefined = useRestaurant(resId)
 
     const handleOnClose = () => {
         setShow(false)
@@ -66,7 +68,7 @@ function RestaurantMenu() {
         console.log(res)
     }
 
-    return !restaurant ? (
+    return ! restaurant ? (
         <>loading...</>
     ) : (
         <div className="grid">
@@ -96,7 +98,7 @@ function RestaurantMenu() {
                         <div className="flex justify-between pt-4 font-semibold text-base">
                             <div className="text-white font-medium pr-8 border-neutral-600 border-r-2">
                                 ★ {
-                                restaurant?.avgRating?.$numberDecimal
+                                restaurant ?. avgRating ?. $numberDecimal
                             }
                                 <div className="text-xs mt-1 text-neutral-300 font-normal">
                                     {
@@ -149,11 +151,11 @@ function RestaurantMenu() {
                   All
                 </button> */}
                 <div> {
-                    restaurant?.menu?.map((items) => {
+                    restaurant ?. menu ?. map((items) => {
                         return (
                             <div className="pt-8 w-screen"
                                 key={
-                                    items?._id
+                                    items ?. _id
                             }>
                                 <div className="flex border-b-2 border-neutral-300 justify-between mt-4 pb-4 w-6/12 mx-80">
                                     <div>
@@ -176,12 +178,12 @@ function RestaurantMenu() {
                                     </div>
                                     <div className="relative flex justify-center">
                                         {
-                                        !items.imageId?(
+                                        !items.imageId ? (
                                             <div className="w-40 h-auto"></div>
                                         ) : (
                                             <img className="w-40 h-auto z-0 border rounded-md"
                                                 src={
-                                                    items?.imageId
+                                                    items ?. imageId
                                                 }/>
                                         )
                                     }
@@ -189,7 +191,7 @@ function RestaurantMenu() {
                                             onClick={
                                                 () => {
                                                     handleDeleteItem(items._id, resId)
-                                                    window.location.reload()
+                                                    navigate('/admin/restaurant-list')
                                                 }
                                         }>
                                             Delete Cuisine

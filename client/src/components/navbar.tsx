@@ -89,7 +89,7 @@ const Navbar = () => {
                         </li>
                     </ul>) : <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
                         <li className="nav-item">
-                            <Link to="/login" className="px-3 py-2 flex items-center text-base uppercase font-semibold leading-snug text-black hover:opacity-75" >
+                            <Link to="/" className="px-3 py-2 flex items-center text-base uppercase font-semibold leading-snug text-black hover:opacity-75" >
                                 <i className="text-lg leading-lg text-white opacity-75"></i>
                                 <span className="ml-2">Login</span>
                             </Link>

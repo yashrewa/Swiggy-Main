@@ -3,12 +3,13 @@ import {useState} from "react";
 import {AiFillCloseSquare} from 'react-icons/ai'
 // import { useNavigate } from "react-router-dom";
 import { backendLink } from "../utils/backendLink";
+import { useNavigate } from "react-router-dom";
 
 
 function AddCusine({resId, visible, onClose}) {
     //use resId.resId instead of resId
 
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const initialState = {
         name: "",
         description: "",
@@ -114,7 +115,7 @@ function AddCusine({resId, visible, onClose}) {
                             onClick={
                                 () => {
                                     handleAddCusine(resId.resId)
-                                    window.location.reload()
+                                    navigate('/admin/restaurant-list')
                                     onClose()
                                 }
                         }>
