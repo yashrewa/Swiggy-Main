@@ -5,7 +5,9 @@ import adminRoutes from './routes/admin'
 import userRoutes from './routes/user'
 const app = express()
 
-app.use(cors())
+app.use(cors({
+    origin: 'https://swiggy-clone-j5gz.onrender.com'
+}))
 app.use(express.json())
 
 app.use('/admin', adminRoutes)

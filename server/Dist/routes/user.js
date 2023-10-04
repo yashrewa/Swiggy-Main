@@ -116,8 +116,8 @@ router.post('/create-checkout-session', Auth_1.Authenticate, (req, res) => __awa
         const session = yield stripe.checkout.sessions.create({
             line_items: tranformedItems,
             mode: 'payment',
-            success_url: `http://localhost:5173/user/payment-success`,
-            cancel_url: `http://localhost:5173/user/restaurant-list/payment-failed`
+            success_url: `https://swiggy-clone-j5gz.onrender.com/user/payment-success`,
+            cancel_url: `https://swiggy-clone-j5gz.onrender.com/restaurant-list/payment-failed`
         });
         res.json({ url: session.url });
     }
