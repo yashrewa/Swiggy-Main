@@ -6,7 +6,7 @@ import userRoutes from './routes/user'
 const app = express()
 
 app.use(cors({
-    origin: 'https://swiggy-main.vercel.app/'
+    origin: 'https://swiggy-main-3acb0bt4v-yashs-projects-dfb34b1e.vercel.app/'
 }))
 app.use(express.json())
 
