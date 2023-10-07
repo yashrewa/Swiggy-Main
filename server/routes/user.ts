@@ -14,7 +14,6 @@ const stripe = new Stripe('sk_test_51NwPdDSFBQprCYehxbsiZziOEipmZSfqQ3Xw824yBT5S
 
 const router = express.Router();
 
-
 const signupValidate = z.object({email: z.string().min(1), password: z.string().min(8)})
 const loginValidate = z.object({email: z.string().min(1), password: z.string().min(8)})
 const restaurantValidate = z.object({
