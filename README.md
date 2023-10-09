@@ -1,22 +1,28 @@
 # UBEREATS x Swiggy
 
-## Use Below credentials
-email: user
-password: password123
 
-# Tech Stack
-Typescript
-ReactJS
-ExpressJS
-Mongoose
-JWT Authentication
-Recoil State Management
-Stripe Payment Gateway
+[Live-Preview](https://swiggy-clone-j5gz.onrender.com)
+
+## Use Below credentials
+* ### Email: user
+* ### Password: password123
+
+## About The Project
+
+
+### Tech Stack
+* Typescript
+* ReactJS
+* ExpressJS
+* Mongoose
+* JWT Authentication
+* Recoil State Management
+* Stripe Payment Gateway
 
 
 ## Local Enviornment Setup
 ### Requirments
-NodeJS
+* NodeJS
 
 ### Clone the repository to your local environment
 Install the dependencies and setup .env with required setup of mongoose key and secret keys
