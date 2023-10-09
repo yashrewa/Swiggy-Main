@@ -1,17 +1,17 @@
 # UBEREATS x Swiggy
 
 ## Use Below credentials
- email: user
- password: password123
+email: user
+password: password123
 
 # Tech Stack
-#### Typescript
-#### ReactJS
-#### ExpressJS
-#### Mongoose
-#### JWT Authentication
-#### Recoil State Management
-#### Stripe Payment Gateway
+Typescript
+ReactJS
+ExpressJS
+Mongoose
+JWT Authentication
+Recoil State Management
+Stripe Payment Gateway
 
 
 ## Local Enviornment Setup
