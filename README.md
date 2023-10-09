@@ -16,7 +16,7 @@ Stripe Payment Gateway
 
 ## Local Enviornment Setup
 ### Requirments
-#### NodeJS
+NodeJS
 
 ### Clone the repository to your local environment
 Install the dependencies and setup .env with required setup of mongoose key and secret keys
