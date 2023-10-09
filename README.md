@@ -1,8 +1,8 @@
 # UBEREATS x Swiggy
 
 ## Use Below credentials
-### email: user
-### password: password123
+ email: user
+ password: password123
 
 # Tech Stack
 #### Typescript
