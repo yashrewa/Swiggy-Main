@@ -26,6 +26,7 @@ const restaurantValidate = zod_1.z.object({
     name: zod_1.z.string().min(1),
     cloudinaryImageId: zod_1.z.string().min(1),
     locality: zod_1.z.string().min(1),
+    area: zod_1.z.string().min(1),
     costForTwo: zod_1.z.number().min(1),
     avgRating: zod_1.z.number().min(1),
     isVeg: zod_1.z.boolean(),
