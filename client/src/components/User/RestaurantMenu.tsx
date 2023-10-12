@@ -169,11 +169,10 @@ function UserRestaurantMenu() { // const navigate = useNavigate();
                                 !items.imageId ? (<div className="w-40 h-auto"></div>) : (<img className="w-40 h-auto border rounded-md"
                                     src={items ?. imageId}/>)
                             }
-                                <button className="bg-green-500 mx-4 p-0.5 rounded-md text-white border-2 border-neutral-300"
+                                <button className="btn-neomorph text-sm md:text-base lg:mx-4 p-0.5 lg:p-1.5 text-black border-2 border-neutral-300"
                                     onClick={
                                         () => {
                                             handleAddToCart(items._id)
-                                            // window.location.reload()
                                         }
                                 }>
                                     Add To Cart

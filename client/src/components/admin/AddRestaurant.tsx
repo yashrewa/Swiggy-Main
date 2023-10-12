@@ -8,6 +8,7 @@ function AddRestaurant() {
         name: "",
         cloudinaryImageId: "",
         locality: "",
+        area: "",
         costForTwo: 0,
         avgRating: 0,
         isVeg: false,
@@ -50,7 +51,7 @@ function AddRestaurant() {
         console.log(restaurantData)
     }
         <div className="my-16 flex justify-center">
-            <div className="w-1/4 border-2 p-6 border-gray-200 shadow-lg shadow-green-500  rounded-xl text-center">
+            <div className="w-1/4 border-2 p-6 border-gray-200 card-neomorph text-center">
                 <div className="mb-3 pt-0">
                     <input type="text" placeholder="Name" className="px-3 py-3 placeholder-slate-500 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
                         onChange={
@@ -75,6 +76,15 @@ function AddRestaurant() {
                             (e) => setRestaurantData({
                                 ...restaurantData,
                                 locality: e.target.value
+                            })
+                        }/>
+                </div>
+                <div className="mb-3 pt-0">
+                    <input type="text" placeholder="area" className="px-3 py-3 placeholder-slate-500 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                        onChange={
+                            (e) => setRestaurantData({
+                                ...restaurantData,
+                                area: e.target.value
                             })
                         }/>
                 </div>
@@ -121,7 +131,7 @@ function AddRestaurant() {
                     onClick={
                         () => handleAddRestaurant()
                 }>
-                    Add Course
+                    Add Restaurant
                 </button>
             </div>
         </div>

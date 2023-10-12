@@ -1,7 +1,7 @@
 const RestrauntCard= ({name, cloudinaryImageId, avgRating, deliveryTime, costForTwo}) =>{
     return(
-      <div className="p-2 lg:p-4 block justify-between border-2  hover:border-[#d3d5df] hover:shadow-lg hover:shadow-gray-300 hover:scale-105 ease-linear duration-75">
-        <img className="w-full" src={cloudinaryImageId}></img>
+      <div className="p-2 lg:p-4 block justify-between btn-neomorph">
+        <img className="lg:w-full aspect-[9:16] " src={cloudinaryImageId}></img>
         <div className="text-base font-bold break-words">{name}</div>
         <div className="text-[#686b78] text-xs mt-1"></div>
         <div className="text-xs flex justify-between pt-2 shadow-md">

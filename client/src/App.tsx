@@ -22,28 +22,29 @@ import { backendLink } from './components/utils/backendLink'
 function App() {
 
 
-  return (
-    <><RecoilRoot>
-        <Router>
-          <Navbar />
-          <InitUser />
-          <Routes>
-          <Route path="/" element= {<UserLogin />} />
-          <Route path="/signup" element= {<UserSingup />} />
-          <Route path="/payment-success" element= {<PaymentSuccess />} />
-          <Route path="/restaurant-list" element= {<RestaurantList />} />
-          <Route path="/restaurant-list/restaurantmenu/:resId" element= {<UserRestaurantMenu />} />
-          <Route path="/admin/login" element= {<AdminLogin />} />
-          <Route path="/admin/signup" element= {<AdminSignup />} />
-          <Route path="/admin/restaurant-list" element= {<RestaurantList />} />
-          <Route path="/admin/restaurant-list/restaurantmenu/:resId" element= {<RestaurantMenu />} />
-          <Route path="/admin/add-restaurant" element= {<AddRestaurant />} />
-          </Routes>
-          <Footer />
-        </Router>
-      </RecoilRoot>
-    </>
-  )
+    return (
+        <div className='h-screen'>
+            <RecoilRoot>
+            <Router>
+                <Navbar />
+                <InitUser />
+                <Routes>
+                    <Route path="/" element={<UserLogin />} />
+                    <Route path="/signup" element={<UserSingup />} />
+                    <Route path="/payment-success" element={<PaymentSuccess />} />
+                    <Route path="/restaurant-list" element={<RestaurantList />} />
+                    <Route path="/restaurant-list/restaurantmenu/:resId" element={<UserRestaurantMenu />} />
+                    <Route path="/admin/login" element={<AdminLogin />} />
+                    <Route path="/admin/signup" element={<AdminSignup />} />
+                    <Route path="/admin/restaurant-list" element={<RestaurantList />} />
+                    <Route path="/admin/restaurant-list/restaurantmenu/:resId" element={<RestaurantMenu />} />
+                    <Route path="/admin/add-restaurant" element={<AddRestaurant />} />
+                </Routes>
+                <Footer />
+            </Router>
+        </RecoilRoot>
+        </div>
+    )
 }
 
 export default App
@@ -55,16 +56,15 @@ export function InitUser() {
     const fetchUserEmail = async () => {
         const response = await axios.get(`${backendLink}/user/me`, {
             headers: {
-                Authorization: `Bearer ${
-                    localStorage.getItem('token')
-                }`
+                Authorization: `Bearer ${localStorage.getItem('token')
+                    }`
             }
         })
         console.log(response)
         if (response.data.email) {
-            setEmail({email: response.data.email})
+            setEmail({ email: response.data.email })
         } else {
-            setEmail({email: null})
+            setEmail({ email: null })
         }
         // console.log(response)
     }
@@ -72,5 +72,5 @@ export function InitUser() {
         fetchUserEmail();
     }, [])
 
-    return(null)
+    return (null)
 }

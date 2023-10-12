@@ -2,3 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+.neomorph {
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 20px 20px 60px #d9d9d9,
+        -20px -20px 60px #ffffff;
+}
+
+.gray-neomorph {
+    border-radius: 30px;
+    background: #d4d4d4;
+    box-shadow: 20px 20px 60px #b4b4b4,
+        -20px -20px 60px #f4f4f4;
+}
+
+.card-neomorph {
+    border-radius: 10px;
+    background: #d4d4d4;
+    box-shadow: 20px 20px 60px #b4b4b4,
+        -20px -20px 60px #f4f4f4;
+}
+
+.btn-neomorph {
+    border-radius: 13px;
+    background: #ffffff;
+    box-shadow: -8px 8px 19px #b8b8b8,
+        8px -8px 19px #ffffff;
+}

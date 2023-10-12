@@ -33,23 +33,23 @@ const Navbar = () => {
         setEmail({email: null})
     }
     return (<>
-        <nav className="relative shadow-lg  flex flex-wrap items-center justify-between px-2 py-1 mb-3">
-            <div className="md:container w-full md:mx-auto px-4 flex flex-wrap items-center justify-between">
+        <nav className="relative header-neomorph flex flex-wrap items-center justify-between px-2 py-2 md:pt-4">
+            <div className="md:container w-full md:mx-36 mx-4 flex  flex-wrap items-center justify-between">
                 <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                     <a className="text-lg font-bold leading-relaxed inline-block mr-4  whitespace-nowrap uppercase text-black" href="/"> {
                         email.email ? <Link to="/restaurant-list"><Logo/>
                         </Link> : <Link to="/"><Logo/></Link>
                     } </a>
                     <div className="flex">
-                        {email.email?<button className="text-green-500 cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" onClick={()=>setShow(true)}>
+                        {email.email?<button className="text-gray-900 cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" onClick={()=>setShow(true)}>
                         <div className="flex"><FaCartShopping /><span className="-translate-y-3" >{cartItemsInfo.length===0? null : cartItemsInfo.length}</span></div>
                         </button>:null}
                         
-                        <button className="text-green-500 cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button"
+                        <button className="text-gray-900 cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button"
                             onClick={
                                 () => setNavbarOpen(!navbarOpen)
                         }>
-                            <FaAlignRight className="text-green-500"/>
+                            <FaAlignRight className="text-gray-900"/>
                         </button>
                     </div>
                 </div>
@@ -61,7 +61,7 @@ const Navbar = () => {
                     id="example-navbar-danger"> {
                     email.email ? (<ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
                         <li className="nav-item">
-                            <Link to="/" className="px-3 py-2 flex items-center text-base uppercase font-semibold leading-snug text-black hover:opacity-75">
+                            <Link to="/restaurant-list" className="px-3 py-2 flex items-center text-base uppercase font-semibold leading-snug text-black hover:opacity-75">
                                 <i className="text-lg leading-lg text-white opacity-75"></i>
                                 <span className="ml-2">Home</span>
                             </Link>

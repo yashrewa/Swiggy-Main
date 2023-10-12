@@ -66,14 +66,14 @@ function Cart({visible, onClose}) {
     
 
     return (<>
-        <div className="fixed inset-0 z-3 overflow-y-scroll bg-black bg-opacity-80 justify-center items-center">
+        <div className="fixed inset-0 z-20 overflow-y-scroll bg-black bg-opacity-80 justify-center items-center">
             <div className="bg-gray-100 m-4 lg:translate-x-0 lg:h-5/6 lg:m-12 lg:mx-32 lg:p-10">
                 <div className="container  lg:mx-auto lg:px-4">
                     <div className="flex justify-between">
-                        <div className="text-2xl font-semibold mb-4">Shopping Cart</div>
+                        <div className="text-2xl font-Inter  font-semibold mb-4">Shopping Cart</div>
                         <div className='hover:cursor-pointer'
                             onClick={onClose}>
-                            <AiFillCloseSquare className="fill-green-500 text-2xl"/>
+                            <AiFillCloseSquare className="btn-neomorph text-gray-950 text-2xl"/>
                         </div>
                     </div>
                     <div className="flex flex-col md:flex-row gap-4">
@@ -158,7 +158,7 @@ function Cart({visible, onClose}) {
                                         totalPrice() + (+ ((totalPrice() * .05).toFixed(2)))
                                     }</span>
                                 </div>
-                                <button className="bg-green-500 text-white py-2 px-4 rounded-lg mt-4 w-full" onClick={()=>handleCheckout()}>Checkout</button>
+                                <button className="btn-neomorph text-black hover:bg-gray-200 transition-all ease-in-out py-2 px-4 rounded-lg mt-4 w-full" onClick={()=>handleCheckout()}>Checkout</button>
                             </div>
                         </div>
                     </div>

@@ -60,7 +60,7 @@ function AddCusine({resId, visible, onClose}) {
                     <div className="w-1/4 bg-white border-2 p-6 border-gray-400 rounded-xl text-center">
                         <div className="flex justify-end">
                             <button onClick={onClose}>
-                                <AiFillCloseSquare className="fill-green-500 text-2xl"/>
+                                <AiFillCloseSquare className="text-black text-2xl"/>
                             </button>
                         </div>
                         <div className="mb-3 pt-0">
@@ -91,7 +91,7 @@ function AddCusine({resId, visible, onClose}) {
                                 }/>
                         </div>
                         <div className="mb-3 pt-0">
-                            <input type="number" placeholder="price" className="px-3 py-3 placeholder-slate-500 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
+                            <input type="number" placeholder="price" className="px-3 py-3 placeholder-slate-500 text-slate-600 relative bg-white rounded text-sm border-0 shadow outline-none  focus:ring w-full"
                                 onChange={
                                     (e) => setRestaurantMenuData({
                                         ...restaurantMenuData,
@@ -107,11 +107,11 @@ function AddCusine({resId, visible, onClose}) {
                                 onChange={
                                     e => handleChange(e)
                                 }
-                                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+                                className="w-4 h-4 text-black-600 bg-gray-100 border-gray-300 rounded focus:ring-black-500 dark:focus:ring-black-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
                             <label htmlFor="default-checkbox" className="ml-2 text-sm font-medium text-slate-500">isVeg</label>
                         </div>
 
-                        <button type="button" className="focus:outline-none text-white bg-green-500 hover:bg-green-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-green-500 dark:hover:bg-green-600 dark:focus:ring-green-900"
+                        <button type="button" className="focus:outline-none btn-neomorph text-black  font-medium rounded-lg text-sm px-5 py-2.5 mb-2 "
                             onClick={
                                 () => {
                                     handleAddCusine(resId.resId)
