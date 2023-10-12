@@ -7,10 +7,11 @@ const app = express()
 
 app.use(cors())
 
-// app.use(cors({
-//     origin: 'https://swiggy-main-3acb0bt4v-yashs-projects-dfb34b1e.vercel.app/'
-// }))
-app.use(express.json())
+app.use(cors({
+    origin: 'https://swiggy-main.vercel.app',
+    
+}))
+// app.use(express.json())
 
 app.use('/admin', adminRoutes)
 app.use('/user', userRoutes)
