@@ -15,4 +15,5 @@ app.use('/admin', admin_1.default);
 app.use('/user', user_1.default);
 mongoose_1.default.connect(`mongodb+srv://yashrewa00:21Savage@cluster0.3z81dfx.mongodb.net/Swiggy?retryWrites=true&w=majority`);
 // mongoose.connect(`${process.env.MONGODB_CONNECT_URI}`)
-app.listen(3000);
+const port = process.env.PORT;
+app.listen(port);
