@@ -1,2 +1,2 @@
-export const backendLink = "https://34.100.201.236"
+export const backendLink = "https://golden-operator-401018.as.r.appspot.com/"
 // export const backendLink = "http://localhost:3000"
