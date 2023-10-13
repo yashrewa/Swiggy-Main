@@ -1,6 +1,5 @@
 import express, {Request, Response} from 'express';
 import mongoose from 'mongoose'
-import fs from 'fs'
 import cors from 'cors';
 import adminRoutes from './routes/admin'
 import userRoutes from './routes/user'
@@ -17,4 +16,6 @@ mongoose.connect(`mongodb+srv://yashrewa00:21Savage@cluster0.3z81dfx.mongodb.net
 // mongoose.connect(`${process.env.MONGODB_CONNECT_URI}`)
 const port = process.env.PORT || 3000;
 
-app.listen(port)
+app.listen(port, ()=>{
+    console.log(`Server is running on port ${port}`)
+})
