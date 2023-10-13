@@ -6,9 +6,7 @@ import adminRoutes from './routes/admin'
 import userRoutes from './routes/user'
 const app = express()
 
-app.use(cors({
-    origin: 'https://swiggy-main.vercel.app/'
-}))
+app.use(cors())
 app.use(express.json())
 
 app.use('/admin', adminRoutes)
