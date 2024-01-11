@@ -47,7 +47,7 @@ function UserLogin() {
             <div className="my-16 flex flex-grow justify-center">
                 <div className="w-4/6 lg:w-4/12 shadow-lg px-10 pt-10 pb-4 btn-neomorph rounded-xl text-center">
                     <div className="mb-3 pt-0">
-                        <input type="text" placeholder="Username"
+                        <input type="text" placeholder="Username" value={`user`}
                             onChange={
                                 (e) => setUserName(e.target.value)
                             }
@@ -55,6 +55,7 @@ function UserLogin() {
                     </div>
                     <div className="mb-3 pt-0">
                         <input type="password" placeholder="Password"
+                            value={`password123`}
                             onChange={
                                 (e) => setPassword(e.target.value)
                             }
