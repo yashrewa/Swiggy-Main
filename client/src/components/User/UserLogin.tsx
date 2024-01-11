@@ -7,8 +7,8 @@ import { backendLink } from "../utils/backendLink";
 import { Link } from "react-router-dom";
 
 function UserLogin() {
-    const [userName, setUserName] = useState("");
-    const [password, setPassword] = useState("");
+    const [userName, setUserName] = useState("user");
+    const [password, setPassword] = useState("password123");
     const navigate = useNavigate();
     // const setUser = useSetRecoilState(userState)
 
@@ -46,8 +46,9 @@ function UserLogin() {
             <div className="text-center text-xl font-medium pt-6 font-Inter">Login Required</div>
             <div className="my-16 flex flex-grow justify-center">
                 <div className="w-4/6 lg:w-4/12 shadow-lg px-10 pt-10 pb-4 btn-neomorph rounded-xl text-center">
+            
                     <div className="mb-3 pt-0">
-                        <input type="text" placeholder="Username" value={`user`}
+                        <input type="text" placeholder="Username" value={userName}
                             onChange={
                                 (e) => setUserName(e.target.value)
                             }
@@ -55,7 +56,7 @@ function UserLogin() {
                     </div>
                     <div className="mb-3 pt-0">
                         <input type="password" placeholder="Password"
-                            value={`password123`}
+                            value={password}
                             onChange={
                                 (e) => setPassword(e.target.value)
                             }
@@ -64,19 +65,20 @@ function UserLogin() {
                     <div className="flex justify-between pt-6">
 
                         <button type="button"
-                            onClick={
-                                () => logIn()
-                            }
+                            onClick={() => {
+                                console.log(userName, password)
+                                return logIn()
+                            }}
                             className="focus:outline-none text-black btn-neomorph  focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 ">
                             Login
                         </button>
                         <div className="text-sm text-left pl-4 text-gray-600">
-                        Already have an account?
-                        <br/>
-                        <span className="font-Poppins font-semibold text- underline">
-                            <Link to='/signup'>Singup</Link>
-                        </span>
-                    </div>
+                            Already have an account?
+                            <br />
+                            <span className="font-Poppins font-semibold text- underline">
+                                <Link to='/signup'>Singup</Link>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
