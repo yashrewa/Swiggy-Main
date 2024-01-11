@@ -1,7 +1,7 @@
 # UBEREATS x Swiggy
 
 
-[Live-Preview](https://swiggy-clone-j5gz.onrender.com)
+[Live-Preview](https://uber-eat.vercel.app)
 
 ## Use Below credentials
 * ### Email: user
