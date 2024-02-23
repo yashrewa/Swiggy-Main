@@ -1,0 +1,29 @@
+{
+  "name": "swiggy-backend",
+  "version": "1.0.0",
+  "description": "backend for a food ordering application",
+  "main": "api/server.js",
+  "scripts": {
+    "start": "node api/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "yash",
+  "license": "ISC",
+  "dependencies": {
+    "@types/stripe": "^8.0.417",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.3",
+    "mongoose-double": "^0.0.1",
+    "stripe": "^13.8.0",
+    "zod": "^3.22.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.14",
+    "@types/express": "^4.17.18",
+    "@types/jsonwebtoken": "^9.0.3",
+    "@types/mongoose": "^5.11.97",
+    "typescript": "^5.2.2"
+  }
+}
