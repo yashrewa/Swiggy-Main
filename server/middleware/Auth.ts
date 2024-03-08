@@ -1,5 +1,5 @@
 export const secretKey: string = "RIPUBEREATS";
-import {Request, Response, NextFunction, json} from "express";
+import {Request, Response, NextFunction} from "express";
 import jwt from "jsonwebtoken"
 
 export const Authenticate = (req : Request, res : Response, next : NextFunction) => {
